@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加房间</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <!--导入布局js，共享header-->
+    <script type="text/javascript" src="js/include.js"></script>
+    <link href="css/header.css" rel="stylesheet">
+    <style>
+        img {
+            margin:50px 40px 0 100px;
+            width: 300px;
+            height: 400px;
+        }
+        tr{
+            height: 50px;
+        }
+        #btn_submit{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div id="header"></div>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="img/house1.jpg">
+    </div>
+    <div class="col-md-4" style="margin-top: 50px">
+        <h1>添加房间</h1>
+        <table style="border: 0;margin-top: 20px">
+            <tr>
+                <td>房号：</td>
+                <td><input type="text" class="form-control" placeholder="房号不能重复"></td>
+            </tr>
+            <tr>
+                <td>类型：</td>
+                <td><input type="text" class="form-control" placeholder="标准间或大床房等"></td>
+            </tr>
+            <tr>
+                <td>定价：</td>
+                <td><input type="text" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>描述：</td>
+                <td><input type="text" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>上传图片：</td>
+                <td><input type="file"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <button type="button" class="btn btn-success" id="btn_submit">提交</button>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+    </div>
+</div>
+</body>
+</html>

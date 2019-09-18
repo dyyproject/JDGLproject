@@ -1,0 +1,41 @@
+#header {
+    background-color: #0078d7;
+    height: 70px;
+}
+
+#search {
+    float: left;
+    margin-top: 20px;
+    width: 50%;
+}
+
+#btn_search {
+    margin-top: 20px;
+}
+
+#right {
+    float: right;
+    margin-top: 23px;
+    color: white;
+}
+
+#right a:link {
+    color: white;
+}
+
+#right a:visited {
+    color: red;
+}
+
+#right a:hover {
+    color: black;
+}
+
+#right a:active {
+    color: white;
+}
+#logo {
+    margin: 10px 0 0 20px;
+    width: 30%;
+    height: 30%;
+}

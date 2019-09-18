@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退房办理</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <!--导入布局js，共享header-->
+    <script type="text/javascript" src="js/include.js"></script>
+    <link href="css/header.css" rel="stylesheet">
+    <style>
+        img {
+            margin:50px 40px 0 100px;
+            width: 300px;
+            height: 400px;
+        }
+        tr{
+            height: 50px;
+        }
+        #btn_submit{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div id="header"></div>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="img/house1.jpg">
+    </div>
+    <div class="col-md-4" style="margin-top: 50px">
+        <h1>302号</h1>
+        <table style="border: 0;margin-top: 20px">
+            <tr>
+                <td>房间类型：</td>
+                <td>双人床</td>
+            </tr>
+            <tr>
+                <td>房间价格：</td>
+                <td>148</td>
+            </tr>
+            <tr>
+                <td>客户姓名：</td>
+                <td><input type="text" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>身份证号：</td>
+                <td><input type="text" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>入住时间：</td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <button type="button" class="btn btn-success" id="btn_submit">提交</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
