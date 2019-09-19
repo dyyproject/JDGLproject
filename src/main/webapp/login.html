@@ -28,10 +28,10 @@
         <div class="container">
             <h1>鹰啸天酒店管理系统</h1>
 
-            <form class="form">
-                <input type="text" ng-model="users.username" placeholder="用户名">
-                <input type="password" ng-model="users.password" placeholder="密码">
-                <button  ng-click="loginUser()" >登录</button>
+            <form class="form" action="login" method="post">
+                <input type="text" name="username" placeholder="用户名">
+                <input type="password" name="password"  placeholder="密码">
+                <button >登录</button>
             </form>
         </div>
 

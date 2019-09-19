@@ -38,9 +38,18 @@ public class TbUsersServiceImpl implements TbUsersService {
         if (users==null){
             return false;
         }
-        if (users.getUserRole()=="1"){
+        if (users.getUserRole()=="2"){
             return true;
         }
         return false;
+    }
+
+    public Users findOne(String username) {
+        UsersExample example = new UsersExample();
+        UsersExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(username);
+        Users users = usersMapper.selectByExample(example).get(0);
+
+        return users;
     }
 }

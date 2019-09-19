@@ -11,4 +11,6 @@ public interface TbUsersService {
     boolean login(Users users);
 
     boolean selectRole(String username);
+
+    Users findOne(String username);
 }
