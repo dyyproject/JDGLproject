@@ -1,25 +1,14 @@
 package com.yingxiaotian.pojo;
 
-public class TbUsers {
+import java.io.Serializable;
+
+public class TbUsers implements Serializable {
     private  String id;
     private  String username;
     private  String password;
     private  String userRole;
     private  String userToroom;
     private  String idcard;
-
-
-    public TbUsers() {
-    }
-
-    public TbUsers(String id, String username, String password, String userRole, String userToroom, String idcard) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.userRole = userRole;
-        this.userToroom = userToroom;
-        this.idcard = idcard;
-    }
 
     public String getId() {
         return id;

@@ -7,4 +7,8 @@ import java.util.List;
 public interface TbUsersService {
 
     List<TbUsers> findAll();
+
+    boolean login(TbUsers users);
+
+    boolean selectRole(String username);
 }

@@ -9,5 +9,8 @@
         <module name="JDGLproject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yingxiaotian" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -24,8 +24,12 @@
         }
 
     </style>
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/service/indexService.js"></script>
+    <script type="text/javascript" src="js/controller/indexController.js"></script>
 </head>
-<body>
+<body ng-app="yingxiaotian" ng-controller="indexController" ng-init="selectRole()">
 <div id="header"></div>
 <!--按钮-->
 <div class="row" style="height: 50px;margin-top:20px">
@@ -70,7 +74,7 @@
                     </div>
                 </div>
             </li>
-            <li class="yui3-u-1-5">
+            <li class="yui3-u-1-5" ng-if="users.role=='1'">
                 <div class="list-wrap">
                     <div class="p-img">
                         <a href="add.html" target="iframe"><img src="img/add.png"/></a>

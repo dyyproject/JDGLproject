@@ -13,8 +13,13 @@
             background-image: url("img/background.jpg");
         }
     </style>
+
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/service/loginService.js"></script>
+    <script type="text/javascript" src="js/controller/loginController.js"></script>
 </head>
-<body>
+<body ng-app="yingxiaotian" ng-controller="loginController" >
 <div id="logo">
     <img src="img/logo.png" style="width: 20%;height: 20%;margin: 20px 20px 20px 20px">
 </div>
@@ -24,9 +29,9 @@
             <h1>鹰啸天酒店管理系统</h1>
 
             <form class="form">
-                <input type="text" placeholder="用户名">
-                <input type="password" placeholder="密码">
-                <button type="submit" id="login-button">登录</button>
+                <input type="text" ng-model="users.username" placeholder="用户名">
+                <input type="password" ng-model="users.password" placeholder="密码">
+                <button  ng-click="loginUser()" >登录</button>
             </form>
         </div>
 
