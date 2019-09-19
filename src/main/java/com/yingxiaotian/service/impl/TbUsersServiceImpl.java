@@ -1,7 +1,8 @@
 package com.yingxiaotian.service.impl;
 
-import com.yingxiaotian.dao.TbUsersMapper;
-import com.yingxiaotian.pojo.TbUsers;
+import com.yingxiaotian.dao.UsersMapper;
+import com.yingxiaotian.pojo.Users;
+import com.yingxiaotian.pojo.UsersExample;
 import com.yingxiaotian.service.TbUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,27 +13,32 @@ import java.util.List;
 public class TbUsersServiceImpl implements TbUsersService {
 
     @Autowired
-    private TbUsersMapper usersMapper;
+    private UsersMapper usersMapper;
 
-    public List<TbUsers> findAll() {
-        return usersMapper.findAll();
+    public List<Users> findAll() {
+        return usersMapper.selectByExample(null);
     }
 
-    public boolean login(TbUsers users) {
-        TbUsers tbUsers=  usersMapper.findByUsernameTopassword(users);
-        if (tbUsers==null){
+    public boolean login(Users users) {
+        UsersExample example=new UsersExample();
+        UsersExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(users.getUsername());
+        criteria.andPasswordEqualTo(users.getPassword());
+        Users users1=  usersMapper.selectByExample(example).get(0);
+        if (users1==null){
             return false;
         }
         return true;
     }
-
-
     public boolean selectRole(String username) {
-        String userRole= usersMapper.selectRole(username);
-        if (userRole==null){
+        UsersExample example=new UsersExample();
+        UsersExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(username);
+        Users users= usersMapper.selectByExample(example).get(0);
+        if (users==null){
             return false;
         }
-        if (userRole=="1"){
+        if (users.getUserRole()=="1"){
             return true;
         }
         return false;

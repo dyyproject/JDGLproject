@@ -1,7 +1,7 @@
 package com.yingxiaotian.controller;
 
 import com.yingxiaotian.pojo.Result;
-import com.yingxiaotian.pojo.TbUsers;
+import com.yingxiaotian.pojo.Users;
 import com.yingxiaotian.service.TbUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,12 +19,12 @@ public class TbUsersController {
     private TbUsersService usersService;
 
     @RequestMapping("/findAll")
-    private List<TbUsers> findAll(){
+    private List<Users> findAll(){
         return usersService.findAll();
     }
 
     @RequestMapping("/loginUsers")
-    private Result loginUsers(@RequestBody TbUsers users ){
+    private Result loginUsers(@RequestBody Users users ){
         boolean b=  usersService.login(users);
         if (b){
             return new Result(b,"登录成功");

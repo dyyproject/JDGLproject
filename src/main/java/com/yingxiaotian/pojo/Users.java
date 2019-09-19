@@ -1,21 +1,24 @@
 package com.yingxiaotian.pojo;
 
-import java.io.Serializable;
+public class Users {
+    private String id;
 
-public class TbUsers implements Serializable {
-    private  String id;
-    private  String username;
-    private  String password;
-    private  String userRole;
-    private  String userToroom;
-    private  String idcard;
+    private String username;
+
+    private String password;
+
+    private String userRole;
+
+    private String userToroom;
+
+    private String idcard;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
     public String getUsername() {
@@ -23,7 +26,7 @@ public class TbUsers implements Serializable {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -31,7 +34,7 @@ public class TbUsers implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getUserRole() {
@@ -39,7 +42,7 @@ public class TbUsers implements Serializable {
     }
 
     public void setUserRole(String userRole) {
-        this.userRole = userRole;
+        this.userRole = userRole == null ? null : userRole.trim();
     }
 
     public String getUserToroom() {
@@ -47,7 +50,7 @@ public class TbUsers implements Serializable {
     }
 
     public void setUserToroom(String userToroom) {
-        this.userToroom = userToroom;
+        this.userToroom = userToroom == null ? null : userToroom.trim();
     }
 
     public String getIdcard() {
@@ -55,6 +58,6 @@ public class TbUsers implements Serializable {
     }
 
     public void setIdcard(String idcard) {
-        this.idcard = idcard;
+        this.idcard = idcard == null ? null : idcard.trim();
     }
 }

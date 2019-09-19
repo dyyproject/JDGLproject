@@ -1,14 +1,14 @@
 package com.yingxiaotian.service;
 
-import com.yingxiaotian.pojo.TbUsers;
+import com.yingxiaotian.pojo.Users;
 
 import java.util.List;
 
 public interface TbUsersService {
 
-    List<TbUsers> findAll();
+    List<Users> findAll();
 
-    boolean login(TbUsers users);
+    boolean login(Users users);
 
     boolean selectRole(String username);
 }

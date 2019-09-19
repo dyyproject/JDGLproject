@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingxiaotian.dao.RoomMapper" >
+  <resultMap id="BaseResultMap" type="com.yingxiaotian.pojo.Room" >
+    <id column="r_id" property="rId" jdbcType="INTEGER" />
+    <result column="r_roomname" property="rRoomname" jdbcType="VARCHAR" />
+    <result column="r_status" property="rStatus" jdbcType="VARCHAR" />
+    <result column="r_date" property="rDate" jdbcType="TIMESTAMP" />
+    <result column="r_type" property="rType" jdbcType="VARCHAR" />
+    <result column="r_price" property="rPrice" jdbcType="DOUBLE" />
+    <result column="r_number" property="rNumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    r_id, r_roomname, r_status, r_date, r_type, r_price, r_number
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yingxiaotian.pojo.RoomExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from room
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from room
+    where r_id = #{rId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from room
+    where r_id = #{rId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yingxiaotian.pojo.RoomExample" >
+    delete from room
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yingxiaotian.pojo.Room" >
+    insert into room (r_id, r_roomname, r_status, 
+      r_date, r_type, r_price, 
+      r_number)
+    values (#{rId,jdbcType=INTEGER}, #{rRoomname,jdbcType=VARCHAR}, #{rStatus,jdbcType=VARCHAR}, 
+      #{rDate,jdbcType=TIMESTAMP}, #{rType,jdbcType=VARCHAR}, #{rPrice,jdbcType=DOUBLE}, 
+      #{rNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yingxiaotian.pojo.Room" >
+    insert into room
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rId != null" >
+        r_id,
+      </if>
+      <if test="rRoomname != null" >
+        r_roomname,
+      </if>
+      <if test="rStatus != null" >
+        r_status,
+      </if>
+      <if test="rDate != null" >
+        r_date,
+      </if>
+      <if test="rType != null" >
+        r_type,
+      </if>
+      <if test="rPrice != null" >
+        r_price,
+      </if>
+      <if test="rNumber != null" >
+        r_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rId != null" >
+        #{rId,jdbcType=INTEGER},
+      </if>
+      <if test="rRoomname != null" >
+        #{rRoomname,jdbcType=VARCHAR},
+      </if>
+      <if test="rStatus != null" >
+        #{rStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rDate != null" >
+        #{rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rType != null" >
+        #{rType,jdbcType=VARCHAR},
+      </if>
+      <if test="rPrice != null" >
+        #{rPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="rNumber != null" >
+        #{rNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yingxiaotian.pojo.RoomExample" resultType="java.lang.Integer" >
+    select count(*) from room
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update room
+    <set >
+      <if test="record.rId != null" >
+        r_id = #{record.rId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rRoomname != null" >
+        r_roomname = #{record.rRoomname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rStatus != null" >
+        r_status = #{record.rStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rDate != null" >
+        r_date = #{record.rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rType != null" >
+        r_type = #{record.rType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rPrice != null" >
+        r_price = #{record.rPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.rNumber != null" >
+        r_number = #{record.rNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update room
+    set r_id = #{record.rId,jdbcType=INTEGER},
+      r_roomname = #{record.rRoomname,jdbcType=VARCHAR},
+      r_status = #{record.rStatus,jdbcType=VARCHAR},
+      r_date = #{record.rDate,jdbcType=TIMESTAMP},
+      r_type = #{record.rType,jdbcType=VARCHAR},
+      r_price = #{record.rPrice,jdbcType=DOUBLE},
+      r_number = #{record.rNumber,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yingxiaotian.pojo.Room" >
+    update room
+    <set >
+      <if test="rRoomname != null" >
+        r_roomname = #{rRoomname,jdbcType=VARCHAR},
+      </if>
+      <if test="rStatus != null" >
+        r_status = #{rStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rDate != null" >
+        r_date = #{rDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rType != null" >
+        r_type = #{rType,jdbcType=VARCHAR},
+      </if>
+      <if test="rPrice != null" >
+        r_price = #{rPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="rNumber != null" >
+        r_number = #{rNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where r_id = #{rId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yingxiaotian.pojo.Room" >
+    update room
+    set r_roomname = #{rRoomname,jdbcType=VARCHAR},
+      r_status = #{rStatus,jdbcType=VARCHAR},
+      r_date = #{rDate,jdbcType=TIMESTAMP},
+      r_type = #{rType,jdbcType=VARCHAR},
+      r_price = #{rPrice,jdbcType=DOUBLE},
+      r_number = #{rNumber,jdbcType=VARCHAR}
+    where r_id = #{rId,jdbcType=INTEGER}
+  </update>
+</mapper>
