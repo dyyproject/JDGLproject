@@ -8,11 +8,16 @@
     <script src="../js/bootstrap.min.js"></script>
     <link href="../css/webbase.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/pages-list.css"/>
+    <!--分页-->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
     <!--导入布局js，共享header-->
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
-    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/base_pagination.js"></script>
     <script type="text/javascript" src="../js/service/indexService.js"></script>
+    <script type="text/javascript" src="../js/service/roomService.js"></script>
     <script type="text/javascript" src="../js/controller/indexController.js"></script>
+
 
 
     <style>
@@ -47,33 +52,19 @@
 <div class="row" id="body">
     <div class="goods-list">
         <ul class="yui3-g">
-            <li class="yui3-u-1-5">
+            <li class="yui3-u-1-5" ng-repeat="entity in list">
                 <div class="list-wrap">
                     <div class="p-img">
                         <a href="../check.html" target="iframe"><img src="../img/house1.jpg"/></a>
                     </div>
                     <div class="attr">
-                        <h4>301<span>（空）</span></b></h4>
+                        <h4>{{entity.rNumber}}<span>（{{status[entity.rStatus]}}）</span></b></h4>
                     </div>
                     <div class="commit">
                         剩余时间0天00小时
                     </div>
                 </div>
             </li>
-            <li class="yui3-u-1-5">
-                <div class="list-wrap">
-                    <div class="p-img">
-                        <a href="../checkout.html" target="iframe"><img src="../img/house1.jpg"/></a>
-                    </div>
-                    <div class="attr">
-                        <h4>302<span>（满）</span></b></h4>
-                    </div>
-                    <div class="commit">
-                        剩余时间1天50小时
-                    </div>
-                </div>
-            </li>
-
 
             <li class="yui3-u-1-5" ng-if="users.userRole=='2'">
                 <div class="list-wrap">
@@ -90,6 +81,8 @@
             </li>
 
         </ul>
+        <!--数据列表/-->
+        <tm-pagination conf="paginationConf"></tm-pagination>
     </div>
 
 </div>
