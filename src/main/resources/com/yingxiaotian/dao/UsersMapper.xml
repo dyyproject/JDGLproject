@@ -8,6 +8,8 @@
     <result column="user_role" property="userRole" jdbcType="VARCHAR" />
     <result column="user_toroom" property="userToroom" jdbcType="VARCHAR" />
     <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="rz_date" property="rzDate" jdbcType="TIMESTAMP" />
+    <result column="xd_date" property="xdDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, user_role, user_toroom, idcard
+    id, username, password, user_role, user_toroom, idcard, rz_date, xd_date
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yingxiaotian.pojo.UsersExample" >
     select
@@ -102,11 +104,11 @@
   </delete>
   <insert id="insert" parameterType="com.yingxiaotian.pojo.Users" >
     insert into users (id, username, password, 
-      user_role, user_toroom, idcard
-      )
+      user_role, user_toroom, idcard, 
+      rz_date, xd_date)
     values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{userRole,jdbcType=VARCHAR}, #{userToroom,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}
-      )
+      #{userRole,jdbcType=VARCHAR}, #{userToroom,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
+      #{rzDate,jdbcType=TIMESTAMP}, #{xdDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.yingxiaotian.pojo.Users" >
     insert into users
@@ -129,6 +131,12 @@
       <if test="idcard != null" >
         idcard,
       </if>
+      <if test="rzDate != null" >
+        rz_date,
+      </if>
+      <if test="xdDate != null" >
+        xd_date,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -148,6 +156,12 @@
       </if>
       <if test="idcard != null" >
         #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="rzDate != null" >
+        #{rzDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xdDate != null" >
+        #{xdDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -178,6 +192,12 @@
       <if test="record.idcard != null" >
         idcard = #{record.idcard,jdbcType=VARCHAR},
       </if>
+      <if test="record.rzDate != null" >
+        rz_date = #{record.rzDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.xdDate != null" >
+        xd_date = #{record.xdDate,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +210,9 @@
       password = #{record.password,jdbcType=VARCHAR},
       user_role = #{record.userRole,jdbcType=VARCHAR},
       user_toroom = #{record.userToroom,jdbcType=VARCHAR},
-      idcard = #{record.idcard,jdbcType=VARCHAR}
+      idcard = #{record.idcard,jdbcType=VARCHAR},
+      rz_date = #{record.rzDate,jdbcType=TIMESTAMP},
+      xd_date = #{record.xdDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -213,6 +235,12 @@
       <if test="idcard != null" >
         idcard = #{idcard,jdbcType=VARCHAR},
       </if>
+      <if test="rzDate != null" >
+        rz_date = #{rzDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xdDate != null" >
+        xd_date = #{xdDate,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -222,7 +250,9 @@
       password = #{password,jdbcType=VARCHAR},
       user_role = #{userRole,jdbcType=VARCHAR},
       user_toroom = #{userToroom,jdbcType=VARCHAR},
-      idcard = #{idcard,jdbcType=VARCHAR}
+      idcard = #{idcard,jdbcType=VARCHAR},
+      rz_date = #{rzDate,jdbcType=TIMESTAMP},
+      xd_date = #{xdDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

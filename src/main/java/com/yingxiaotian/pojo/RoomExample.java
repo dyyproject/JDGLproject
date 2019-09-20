@@ -1,7 +1,6 @@
 package com.yingxiaotian.pojo;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class RoomExample {
@@ -305,66 +304,6 @@ public class RoomExample {
             return (Criteria) this;
         }
 
-        public Criteria andRDateIsNull() {
-            addCriterion("r_date is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateIsNotNull() {
-            addCriterion("r_date is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateEqualTo(Date value) {
-            addCriterion("r_date =", value, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateNotEqualTo(Date value) {
-            addCriterion("r_date <>", value, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateGreaterThan(Date value) {
-            addCriterion("r_date >", value, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("r_date >=", value, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateLessThan(Date value) {
-            addCriterion("r_date <", value, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateLessThanOrEqualTo(Date value) {
-            addCriterion("r_date <=", value, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateIn(List<Date> values) {
-            addCriterion("r_date in", values, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateNotIn(List<Date> values) {
-            addCriterion("r_date not in", values, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateBetween(Date value1, Date value2) {
-            addCriterion("r_date between", value1, value2, "rDate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRDateNotBetween(Date value1, Date value2) {
-            addCriterion("r_date not between", value1, value2, "rDate");
-            return (Criteria) this;
-        }
-
         public Criteria andRTypeIsNull() {
             addCriterion("r_type is null");
             return (Criteria) this;
@@ -632,6 +571,76 @@ public class RoomExample {
 
         public Criteria andRPhotoNotBetween(String value1, String value2) {
             addCriterion("r_photo not between", value1, value2, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescIsNull() {
+            addCriterion("r_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescIsNotNull() {
+            addCriterion("r_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescEqualTo(String value) {
+            addCriterion("r_desc =", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescNotEqualTo(String value) {
+            addCriterion("r_desc <>", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescGreaterThan(String value) {
+            addCriterion("r_desc >", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescGreaterThanOrEqualTo(String value) {
+            addCriterion("r_desc >=", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescLessThan(String value) {
+            addCriterion("r_desc <", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescLessThanOrEqualTo(String value) {
+            addCriterion("r_desc <=", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescLike(String value) {
+            addCriterion("r_desc like", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescNotLike(String value) {
+            addCriterion("r_desc not like", value, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescIn(List<String> values) {
+            addCriterion("r_desc in", values, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescNotIn(List<String> values) {
+            addCriterion("r_desc not in", values, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescBetween(String value1, String value2) {
+            addCriterion("r_desc between", value1, value2, "rDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andRDescNotBetween(String value1, String value2) {
+            addCriterion("r_desc not between", value1, value2, "rDesc");
             return (Criteria) this;
         }
     }

@@ -1,6 +1,7 @@
 package com.yingxiaotian.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UsersExample {
@@ -521,6 +522,126 @@ public class UsersExample {
 
         public Criteria andIdcardNotBetween(String value1, String value2) {
             addCriterion("idcard not between", value1, value2, "idcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateIsNull() {
+            addCriterion("rz_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateIsNotNull() {
+            addCriterion("rz_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateEqualTo(Date value) {
+            addCriterion("rz_date =", value, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateNotEqualTo(Date value) {
+            addCriterion("rz_date <>", value, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateGreaterThan(Date value) {
+            addCriterion("rz_date >", value, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("rz_date >=", value, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateLessThan(Date value) {
+            addCriterion("rz_date <", value, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateLessThanOrEqualTo(Date value) {
+            addCriterion("rz_date <=", value, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateIn(List<Date> values) {
+            addCriterion("rz_date in", values, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateNotIn(List<Date> values) {
+            addCriterion("rz_date not in", values, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateBetween(Date value1, Date value2) {
+            addCriterion("rz_date between", value1, value2, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRzDateNotBetween(Date value1, Date value2) {
+            addCriterion("rz_date not between", value1, value2, "rzDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateIsNull() {
+            addCriterion("xd_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateIsNotNull() {
+            addCriterion("xd_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateEqualTo(Date value) {
+            addCriterion("xd_date =", value, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateNotEqualTo(Date value) {
+            addCriterion("xd_date <>", value, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateGreaterThan(Date value) {
+            addCriterion("xd_date >", value, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("xd_date >=", value, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateLessThan(Date value) {
+            addCriterion("xd_date <", value, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateLessThanOrEqualTo(Date value) {
+            addCriterion("xd_date <=", value, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateIn(List<Date> values) {
+            addCriterion("xd_date in", values, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateNotIn(List<Date> values) {
+            addCriterion("xd_date not in", values, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateBetween(Date value1, Date value2) {
+            addCriterion("xd_date between", value1, value2, "xdDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andXdDateNotBetween(Date value1, Date value2) {
+            addCriterion("xd_date not between", value1, value2, "xdDate");
             return (Criteria) this;
         }
     }

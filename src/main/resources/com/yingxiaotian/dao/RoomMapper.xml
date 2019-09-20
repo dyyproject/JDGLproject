@@ -5,11 +5,11 @@
     <id column="r_id" property="rId" jdbcType="INTEGER" />
     <result column="r_roomname" property="rRoomname" jdbcType="VARCHAR" />
     <result column="r_status" property="rStatus" jdbcType="VARCHAR" />
-    <result column="r_date" property="rDate" jdbcType="TIMESTAMP" />
     <result column="r_type" property="rType" jdbcType="VARCHAR" />
     <result column="r_price" property="rPrice" jdbcType="DOUBLE" />
     <result column="r_number" property="rNumber" jdbcType="VARCHAR" />
     <result column="r_photo" property="rPhoto" jdbcType="VARCHAR" />
+    <result column="r_desc" property="rDesc" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    r_id, r_roomname, r_status, r_date, r_type, r_price, r_number, r_photo
+    r_id, r_roomname, r_status, r_type, r_price, r_number, r_photo, r_desc
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yingxiaotian.pojo.RoomExample" >
     select
@@ -104,11 +104,11 @@
   </delete>
   <insert id="insert" parameterType="com.yingxiaotian.pojo.Room" >
     insert into room (r_id, r_roomname, r_status, 
-      r_date, r_type, r_price, 
-      r_number, r_photo)
+      r_type, r_price, r_number, 
+      r_photo, r_desc)
     values (#{rId,jdbcType=INTEGER}, #{rRoomname,jdbcType=VARCHAR}, #{rStatus,jdbcType=VARCHAR}, 
-      #{rDate,jdbcType=TIMESTAMP}, #{rType,jdbcType=VARCHAR}, #{rPrice,jdbcType=DOUBLE}, 
-      #{rNumber,jdbcType=VARCHAR}, #{rPhoto,jdbcType=VARCHAR})
+      #{rType,jdbcType=VARCHAR}, #{rPrice,jdbcType=DOUBLE}, #{rNumber,jdbcType=VARCHAR}, 
+      #{rPhoto,jdbcType=VARCHAR}, #{rDesc,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yingxiaotian.pojo.Room" >
     insert into room
@@ -122,9 +122,6 @@
       <if test="rStatus != null" >
         r_status,
       </if>
-      <if test="rDate != null" >
-        r_date,
-      </if>
       <if test="rType != null" >
         r_type,
       </if>
@@ -137,6 +134,9 @@
       <if test="rPhoto != null" >
         r_photo,
       </if>
+      <if test="rDesc != null" >
+        r_desc,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rId != null" >
@@ -147,9 +147,6 @@
       </if>
       <if test="rStatus != null" >
         #{rStatus,jdbcType=VARCHAR},
-      </if>
-      <if test="rDate != null" >
-        #{rDate,jdbcType=TIMESTAMP},
       </if>
       <if test="rType != null" >
         #{rType,jdbcType=VARCHAR},
@@ -162,6 +159,9 @@
       </if>
       <if test="rPhoto != null" >
         #{rPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="rDesc != null" >
+        #{rDesc,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -183,9 +183,6 @@
       <if test="record.rStatus != null" >
         r_status = #{record.rStatus,jdbcType=VARCHAR},
       </if>
-      <if test="record.rDate != null" >
-        r_date = #{record.rDate,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.rType != null" >
         r_type = #{record.rType,jdbcType=VARCHAR},
       </if>
@@ -198,6 +195,9 @@
       <if test="record.rPhoto != null" >
         r_photo = #{record.rPhoto,jdbcType=VARCHAR},
       </if>
+      <if test="record.rDesc != null" >
+        r_desc = #{record.rDesc,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -208,11 +208,11 @@
     set r_id = #{record.rId,jdbcType=INTEGER},
       r_roomname = #{record.rRoomname,jdbcType=VARCHAR},
       r_status = #{record.rStatus,jdbcType=VARCHAR},
-      r_date = #{record.rDate,jdbcType=TIMESTAMP},
       r_type = #{record.rType,jdbcType=VARCHAR},
       r_price = #{record.rPrice,jdbcType=DOUBLE},
       r_number = #{record.rNumber,jdbcType=VARCHAR},
-      r_photo = #{record.rPhoto,jdbcType=VARCHAR}
+      r_photo = #{record.rPhoto,jdbcType=VARCHAR},
+      r_desc = #{record.rDesc,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -226,9 +226,6 @@
       <if test="rStatus != null" >
         r_status = #{rStatus,jdbcType=VARCHAR},
       </if>
-      <if test="rDate != null" >
-        r_date = #{rDate,jdbcType=TIMESTAMP},
-      </if>
       <if test="rType != null" >
         r_type = #{rType,jdbcType=VARCHAR},
       </if>
@@ -241,6 +238,9 @@
       <if test="rPhoto != null" >
         r_photo = #{rPhoto,jdbcType=VARCHAR},
       </if>
+      <if test="rDesc != null" >
+        r_desc = #{rDesc,jdbcType=VARCHAR},
+      </if>
     </set>
     where r_id = #{rId,jdbcType=INTEGER}
   </update>
@@ -248,11 +248,11 @@
     update room
     set r_roomname = #{rRoomname,jdbcType=VARCHAR},
       r_status = #{rStatus,jdbcType=VARCHAR},
-      r_date = #{rDate,jdbcType=TIMESTAMP},
       r_type = #{rType,jdbcType=VARCHAR},
       r_price = #{rPrice,jdbcType=DOUBLE},
       r_number = #{rNumber,jdbcType=VARCHAR},
-      r_photo = #{rPhoto,jdbcType=VARCHAR}
+      r_photo = #{rPhoto,jdbcType=VARCHAR},
+      r_desc = #{rDesc,jdbcType=VARCHAR}
     where r_id = #{rId,jdbcType=INTEGER}
   </update>
 </mapper>

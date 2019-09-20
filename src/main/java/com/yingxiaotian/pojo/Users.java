@@ -1,5 +1,7 @@
 package com.yingxiaotian.pojo;
 
+import java.util.Date;
+
 public class Users {
     private String id;
 
@@ -12,6 +14,10 @@ public class Users {
     private String userToroom;
 
     private String idcard;
+
+    private Date rzDate;
+
+    private Date xdDate;
 
     public String getId() {
         return id;
@@ -59,5 +65,21 @@ public class Users {
 
     public void setIdcard(String idcard) {
         this.idcard = idcard == null ? null : idcard.trim();
+    }
+
+    public Date getRzDate() {
+        return rzDate;
+    }
+
+    public void setRzDate(Date rzDate) {
+        this.rzDate = rzDate;
+    }
+
+    public Date getXdDate() {
+        return xdDate;
+    }
+
+    public void setXdDate(Date xdDate) {
+        this.xdDate = xdDate;
     }
 }

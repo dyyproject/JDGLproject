@@ -1,15 +1,11 @@
 package com.yingxiaotian.pojo;
 
-import java.util.Date;
-
 public class Room {
     private Integer rId;
 
     private String rRoomname;
 
     private String rStatus;
-
-    private Date rDate;
 
     private String rType;
 
@@ -18,6 +14,8 @@ public class Room {
     private String rNumber;
 
     private String rPhoto;
+
+    private String rDesc;
 
     public Integer getrId() {
         return rId;
@@ -41,14 +39,6 @@ public class Room {
 
     public void setrStatus(String rStatus) {
         this.rStatus = rStatus == null ? null : rStatus.trim();
-    }
-
-    public Date getrDate() {
-        return rDate;
-    }
-
-    public void setrDate(Date rDate) {
-        this.rDate = rDate;
     }
 
     public String getrType() {
@@ -81,5 +71,13 @@ public class Room {
 
     public void setrPhoto(String rPhoto) {
         this.rPhoto = rPhoto == null ? null : rPhoto.trim();
+    }
+
+    public String getrDesc() {
+        return rDesc;
+    }
+
+    public void setrDesc(String rDesc) {
+        this.rDesc = rDesc == null ? null : rDesc.trim();
     }
 }
