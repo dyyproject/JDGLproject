@@ -1,4 +1,4 @@
-app.controller('indexController',function ($scope, $location,indexService) {
+app.controller('indexController',function ($scope, $location,indexService,roomService) {
     $scope.users={};
     $scope.selectUsername=function () {
         indexService.selectUsername().success(
@@ -22,5 +22,14 @@ app.controller('indexController',function ($scope, $location,indexService) {
            }
        )
     }
+
+    $scope.search=function () {
+        roomService.search($scope.searchString).success(
+            function (response) {
+                $scope.list=response;
+            }
+        )
+    }
+    $scope.status=["空","满"];
 
 });
