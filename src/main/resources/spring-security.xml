@@ -12,7 +12,6 @@
     <http pattern="/img/**" security="none"></http>
     <http pattern="/js/**" security="none"></http>
     <http pattern="/plugins/**" security="none"></http>
-    <http pattern="/seller/add.do" security="none"></http>
     <http pattern="/favicon.ico" security="none"></http>
 
     <http use-expressions="false">
