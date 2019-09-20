@@ -22,6 +22,9 @@ public class Users {
     private Date xdDate;
 
 
+    public String getRoleStr() {
+        return roleStr;
+    }
 
     public void setRoleStr(String roleStr) {
         this.roleStr = roleStr;
@@ -52,6 +55,14 @@ public class Users {
     }
 
     public String getUserRole() {
+
+        if (userRole!=null){
+            if (userRole.equals("1")){
+                roleStr="普通用户";
+            }else {
+                roleStr="超级管理员";
+            }
+        }
         return userRole;
     }
 
