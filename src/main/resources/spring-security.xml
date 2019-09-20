@@ -13,6 +13,7 @@
     <http pattern="/js/**" security="none"></http>
     <http pattern="/plugins/**" security="none"></http>
     <http pattern="/favicon.ico" security="none"></http>
+    <http pattern="/quanjing/*" security="none"></http>
 
     <http use-expressions="false">
         <headers>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+    <link href="../css/webbase.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/pages-list.css"/>
+    <!--导入布局js，共享header-->
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../js/service/indexService.js"></script>
+    <script type="text/javascript" src="../js/controller/indexController.js"></script>
+
+
+    <style>
+        .p-img img {
+            width: 200px;
+            height: 240px;
+        }
+        #details:link {
+            color: #1ba157;
+            font-weight: 700;
+        }
+    </style>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini"  ng-app="yingxiaotian" ng-controller="indexController" ng-init="findOne()">
+
+
+<!--按钮-->
+<div class="row" style="height: 50px;margin-top:20px">
+    <div class="col-md-7"></div>
+    <div class="col-md-3" style="margin-top: 10px">
+        共16间，入住8间，剩余8间
+        <a id="details" href="../client.html" target="iframe">>> 详情 >></a>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-default" href="#">空房</button>
+        <button class="btn btn-default" href="#">全部</button>
+    </div>
+</div>
+
+<!--显示-->
+<div class="row" id="body">
+    <div class="goods-list">
+        <ul class="yui3-g">
+            <li class="yui3-u-1-5">
+                <div class="list-wrap">
+                    <div class="p-img">
+                        <a href="../check.html" target="iframe"><img src="../img/house1.jpg"/></a>
+                    </div>
+                    <div class="attr">
+                        <h4>301<span>（空）</span></b></h4>
+                    </div>
+                    <div class="commit">
+                        剩余时间0天00小时
+                    </div>
+                </div>
+            </li>
+            <li class="yui3-u-1-5">
+                <div class="list-wrap">
+                    <div class="p-img">
+                        <a href="../checkout.html" target="iframe"><img src="../img/house1.jpg"/></a>
+                    </div>
+                    <div class="attr">
+                        <h4>302<span>（满）</span></b></h4>
+                    </div>
+                    <div class="commit">
+                        剩余时间1天50小时
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="yui3-u-1-5" ng-if="users.userRole=='2'">
+                <div class="list-wrap">
+                    <div class="p-img">
+                        <a href="../add.html" target="iframe"><img src="../img/add.png"/></a>
+                    </div>
+                    <div class="attr">
+                        <h4>添加房间</h4>
+                    </div>
+                    <div class="commit">
+                        超级管理员可操作
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+
+<div id="footer" class=".footer">
+    <input type="button" value="分店全景展示" onClick="window.open('../quanjing/index.html','blank_','scrollbars=yes,resizable=yes,width=650px,height=750px')">
+</div>
+</body>
+</html>
