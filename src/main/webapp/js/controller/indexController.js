@@ -57,4 +57,12 @@ app.controller('indexController',function ($scope, $location,indexService) {
         )
     }
 
+    $scope.findAll=function () {
+        indexService.findAll().success(
+            function (response) {
+                $scope.entity=response;
+            }
+        )
+    }
+
 });

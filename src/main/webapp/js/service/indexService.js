@@ -23,4 +23,8 @@ app.service('indexService',function ($http) {
     this.addUsers=function (ent) {
         return $http.post('../user/addUsers.do',ent);
     }
+
+    this.findAll=function () {
+        return $http.get('../user/findAll.do');
+    }
 });
