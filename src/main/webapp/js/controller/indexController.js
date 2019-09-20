@@ -1,4 +1,4 @@
-app.controller('indexController',function ($scope, $location,indexService,roomService) {
+app.controller('indexController',function ($scope, $location,indexService) {
     $scope.users={};
     $scope.selectUsername=function () {
         indexService.selectUsername().success(
@@ -26,10 +26,35 @@ app.controller('indexController',function ($scope, $location,indexService,roomSe
     $scope.search=function () {
         roomService.search($scope.searchString).success(
             function (response) {
-                $scope.list=response;
+                if (response.success){
+                    $scope.findAll();
+                } else {
+                    alert(response.message);
+                }
+            }
+        )
+    };
+
+    /**
+     * 关闭返回index
+     */
+    $scope.close=function(){
+        location.href="/admin/index.html";
+    }
+
+    /**
+     * 新建users
+     */
+    $scope.addUsers=function () {
+        indexService.addUsers($scope.ent).success(
+            function (response) {
+                if (response.success){
+                    $scope.findAll();
+                } else {
+                    alert(response.message);
+                }
             }
         )
     }
-    $scope.status=["空","满"];
 
 });
