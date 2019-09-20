@@ -21,4 +21,10 @@ public interface TbUsersService {
      */
     List<String> findByUsername(String username);
 
+
+
+
+    void deleteUsers(String username);
+
+    void addUsers(Users users);
 }
