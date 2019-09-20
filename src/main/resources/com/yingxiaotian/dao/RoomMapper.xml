@@ -9,6 +9,7 @@
     <result column="r_type" property="rType" jdbcType="VARCHAR" />
     <result column="r_price" property="rPrice" jdbcType="DOUBLE" />
     <result column="r_number" property="rNumber" jdbcType="VARCHAR" />
+    <result column="r_photo" property="rPhoto" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    r_id, r_roomname, r_status, r_date, r_type, r_price, r_number
+    r_id, r_roomname, r_status, r_date, r_type, r_price, r_number, r_photo
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yingxiaotian.pojo.RoomExample" >
     select
@@ -104,10 +105,10 @@
   <insert id="insert" parameterType="com.yingxiaotian.pojo.Room" >
     insert into room (r_id, r_roomname, r_status, 
       r_date, r_type, r_price, 
-      r_number)
+      r_number, r_photo)
     values (#{rId,jdbcType=INTEGER}, #{rRoomname,jdbcType=VARCHAR}, #{rStatus,jdbcType=VARCHAR}, 
       #{rDate,jdbcType=TIMESTAMP}, #{rType,jdbcType=VARCHAR}, #{rPrice,jdbcType=DOUBLE}, 
-      #{rNumber,jdbcType=VARCHAR})
+      #{rNumber,jdbcType=VARCHAR}, #{rPhoto,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yingxiaotian.pojo.Room" >
     insert into room
@@ -133,6 +134,9 @@
       <if test="rNumber != null" >
         r_number,
       </if>
+      <if test="rPhoto != null" >
+        r_photo,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rId != null" >
@@ -155,6 +159,9 @@
       </if>
       <if test="rNumber != null" >
         #{rNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rPhoto != null" >
+        #{rPhoto,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -188,6 +195,9 @@
       <if test="record.rNumber != null" >
         r_number = #{record.rNumber,jdbcType=VARCHAR},
       </if>
+      <if test="record.rPhoto != null" >
+        r_photo = #{record.rPhoto,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -201,7 +211,8 @@
       r_date = #{record.rDate,jdbcType=TIMESTAMP},
       r_type = #{record.rType,jdbcType=VARCHAR},
       r_price = #{record.rPrice,jdbcType=DOUBLE},
-      r_number = #{record.rNumber,jdbcType=VARCHAR}
+      r_number = #{record.rNumber,jdbcType=VARCHAR},
+      r_photo = #{record.rPhoto,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +238,9 @@
       <if test="rNumber != null" >
         r_number = #{rNumber,jdbcType=VARCHAR},
       </if>
+      <if test="rPhoto != null" >
+        r_photo = #{rPhoto,jdbcType=VARCHAR},
+      </if>
     </set>
     where r_id = #{rId,jdbcType=INTEGER}
   </update>
@@ -237,7 +251,8 @@
       r_date = #{rDate,jdbcType=TIMESTAMP},
       r_type = #{rType,jdbcType=VARCHAR},
       r_price = #{rPrice,jdbcType=DOUBLE},
-      r_number = #{rNumber,jdbcType=VARCHAR}
+      r_number = #{rNumber,jdbcType=VARCHAR},
+      r_photo = #{rPhoto,jdbcType=VARCHAR}
     where r_id = #{rId,jdbcType=INTEGER}
   </update>
 </mapper>

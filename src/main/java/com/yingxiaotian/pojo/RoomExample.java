@@ -564,6 +564,76 @@ public class RoomExample {
             addCriterion("r_number not between", value1, value2, "rNumber");
             return (Criteria) this;
         }
+
+        public Criteria andRPhotoIsNull() {
+            addCriterion("r_photo is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoIsNotNull() {
+            addCriterion("r_photo is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoEqualTo(String value) {
+            addCriterion("r_photo =", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoNotEqualTo(String value) {
+            addCriterion("r_photo <>", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoGreaterThan(String value) {
+            addCriterion("r_photo >", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoGreaterThanOrEqualTo(String value) {
+            addCriterion("r_photo >=", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoLessThan(String value) {
+            addCriterion("r_photo <", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoLessThanOrEqualTo(String value) {
+            addCriterion("r_photo <=", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoLike(String value) {
+            addCriterion("r_photo like", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoNotLike(String value) {
+            addCriterion("r_photo not like", value, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoIn(List<String> values) {
+            addCriterion("r_photo in", values, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoNotIn(List<String> values) {
+            addCriterion("r_photo not in", values, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoBetween(String value1, String value2) {
+            addCriterion("r_photo between", value1, value2, "rPhoto");
+            return (Criteria) this;
+        }
+
+        public Criteria andRPhotoNotBetween(String value1, String value2) {
+            addCriterion("r_photo not between", value1, value2, "rPhoto");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

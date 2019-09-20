@@ -17,6 +17,8 @@ public class Room {
 
     private String rNumber;
 
+    private String rPhoto;
+
     public Integer getrId() {
         return rId;
     }
@@ -71,5 +73,13 @@ public class Room {
 
     public void setrNumber(String rNumber) {
         this.rNumber = rNumber == null ? null : rNumber.trim();
+    }
+
+    public String getrPhoto() {
+        return rPhoto;
+    }
+
+    public void setrPhoto(String rPhoto) {
+        this.rPhoto = rPhoto == null ? null : rPhoto.trim();
     }
 }
