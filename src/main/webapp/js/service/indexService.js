@@ -8,4 +8,7 @@ app.service('indexService',function ($http) {
         return $http.get('../user/findOne.do');
     }
 
+    this.logout=function () {
+        return $http.get('/logout');
+    }
 });

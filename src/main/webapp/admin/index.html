@@ -19,6 +19,7 @@
     <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
     <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="../plugins/adminLTE/js/app.min.js"></script>
+    <link href="../css/header.css" rel="stylesheet">
 
     <script type="text/javascript">
         function SetIFrameHeight() {
@@ -28,15 +29,36 @@
             }
         }
     </script>
-
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
     <script type="text/javascript" src="../js/base.js"></script>
     <script type="text/javascript" src="../js/service/indexService.js"></script>
     <script type="text/javascript" src="../js/controller/indexController.js"></script>
+
 </head>
 
-<body ng-app="yingxiaotian" ng-controller="indexController" ng-init="selectUsername()">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="yingxiaotian" ng-controller="indexController" ng-init="findOne()">
+<!--头部-->
+<header class="main-header row" id="header">
+    <!--logo-->
+    <div class="col-md-4">
+        <img src="../img/logo.png" style="" id="logo">
+    </div>
+    <!--搜索-->
+    <div class="col-md-4">
+        <div class="row">
+            <input type="text" class="form-control" id="search" placeholder="请输入姓名或房间号">
+            <button id="btn_search" class="btn btn-default">搜索</button>
+        </div>
+    </div>
+    <!--欢迎，分配，退出-->
+    <div class="col-md-3">
+        <div class="row" id="right">
+            欢迎你，{{users.username}}
+            <a href="/logout">退出</a>
+        </div>
 
+    </div>
+</header>
 <!-- 导航侧栏 -->
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->

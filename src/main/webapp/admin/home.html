@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
@@ -9,30 +9,27 @@
     <link href="../css/webbase.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/pages-list.css"/>
     <!--导入布局js，共享header-->
-    <script type="text/javascript" src="../js/include.js"></script>
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
     <script type="text/javascript" src="../js/base.js"></script>
     <script type="text/javascript" src="../js/service/indexService.js"></script>
     <script type="text/javascript" src="../js/controller/indexController.js"></script>
 
-    <link href="../css/header.css" rel="stylesheet">
 
     <style>
         .p-img img {
             width: 200px;
             height: 240px;
         }
-
         #details:link {
             color: #1ba157;
             font-weight: 700;
         }
-
     </style>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini"  >
-<div id="header"></div>
+<body class="hold-transition skin-blue sidebar-mini"  ng-app="yingxiaotian" ng-controller="indexController" ng-init="findOne()">
+
+{{users}}
 <!--按钮-->
 <div class="row" style="height: 50px;margin-top:20px">
     <div class="col-md-7"></div>
@@ -45,7 +42,7 @@
         <button class="btn btn-default" href="#">全部</button>
     </div>
 </div>
-{{users}}
+
 <!--显示-->
 <div class="row" id="body">
     <div class="goods-list">
@@ -78,7 +75,7 @@
             </li>
 
 
-            <li class="yui3-u-1-5" ng-if="">
+            <li class="yui3-u-1-5" ng-if="users.userRole=='2'">
                 <div class="list-wrap">
                     <div class="p-img">
                         <a href="../add.html" target="iframe"><img src="../img/add.png"/></a>

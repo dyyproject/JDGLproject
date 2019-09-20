@@ -15,4 +15,12 @@ app.controller('indexController',function ($scope, $location,indexService) {
         )
     }
 
+    $scope.logout=function () {
+       indexService.logout().success(
+           function (response) {
+               location.href="http://baidu.com";
+           }
+       )
+    }
+
 });
