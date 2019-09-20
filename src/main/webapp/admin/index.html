@@ -41,7 +41,7 @@
 <header class="main-header row" id="header">
     <!--logo-->
     <div class="col-md-4">
-        <img src="../img/logo.png" style="" id="logo">
+        <a href="home.html" target="iframe"><img src="../img/logo.png" style="" id="logo"></a>
     </div>
     <!--搜索-->
     <div class="col-md-4">
@@ -78,11 +78,15 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">菜单</li>
-            <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+            <li id="admin-index">
+                <a href="home.html" target="iframe">
+                    <i class="fa fa-dashboard"></i> <span>首页</span>
+                </a>
+            </li>
 
             <!-- 菜单 -->
             <li class="treeview">
-                <a href="#">
+                <a href="index.html">
                     <i class="fa fa-folder"></i>
                     <span>用户管理</span>
                     <span class="pull-right-container">
