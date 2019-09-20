@@ -13,4 +13,12 @@ public interface TbUsersService {
     boolean selectRole(String username);
 
     Users findOne(String username);
+
+    /**
+     * 根据用户名，返回房间号，模糊查询
+     * @param username
+     * @return
+     */
+    List<String> findByUsername(String username);
+
 }

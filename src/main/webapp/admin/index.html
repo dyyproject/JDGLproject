@@ -32,6 +32,7 @@
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
     <script type="text/javascript" src="../js/base.js"></script>
     <script type="text/javascript" src="../js/service/indexService.js"></script>
+    <script type="text/javascript" src="../js/service/roomService.js"></script>
     <script type="text/javascript" src="../js/controller/indexController.js"></script>
 
 </head>
@@ -46,8 +47,8 @@
     <!--搜索-->
     <div class="col-md-4">
         <div class="row">
-            <input type="text" class="form-control" id="search" placeholder="请输入姓名或房间号">
-            <button id="btn_search" class="btn btn-default" ng-model="searchList">搜索</button>
+            <input type="text" class="form-control" id="search" placeholder="请输入姓名或房间号" ng-model="searchString">
+            <button id="btn_search" class="btn btn-default" ng-click="search()">搜索</button>
         </div>
     </div>
     <!--欢迎，分配，退出-->

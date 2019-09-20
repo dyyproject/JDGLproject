@@ -7,6 +7,8 @@ import com.yingxiaotian.service.TbUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -51,5 +53,21 @@ public class TbUsersServiceImpl implements TbUsersService {
         Users users = usersMapper.selectByExample(example).get(0);
 
         return users;
+    }
+
+    public List<String> findByUsername(String username) {
+        Date today = new Date();
+        List<String> userToroomList = new ArrayList<String>();
+        UsersExample example = new UsersExample();
+        UsersExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameLike(username);
+        criteria.andXdDateGreaterThan(today);
+        criteria.andRzDateLessThan(today);
+        List<Users> users = usersMapper.selectByExample(example);
+        for (Users user : users) {
+            String userToroom = user.getUserToroom();
+            userToroomList.add(userToroom);
+        }
+        return userToroomList;
     }
 }
