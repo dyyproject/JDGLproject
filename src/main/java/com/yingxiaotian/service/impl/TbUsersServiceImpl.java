@@ -54,7 +54,6 @@ public class TbUsersServiceImpl implements TbUsersService {
         UsersExample.Criteria criteria = example.createCriteria();
         criteria.andUsernameEqualTo(username);
         Users users = usersMapper.selectByExample(example).get(0);
-
         return users;
     }
 
@@ -91,5 +90,12 @@ public class TbUsersServiceImpl implements TbUsersService {
         String s= uuid.toString();
         users.setId(s);
         usersMapper.insert(users);
+    }
+
+    public void updateUser(Users users) {
+        UsersExample example = new UsersExample();
+        UsersExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(users.getUsername());
+        usersMapper.updateByExample(users,example);
     }
 }

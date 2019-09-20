@@ -49,12 +49,17 @@ public class TbUsersController {
          return map;
     }
 
-    @RequestMapping("/findOne")
-    private Users findOne(){
+    @RequestMapping("/findName")
+    private Users findName(){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return usersService.findOne(username);
     }
 
+    @RequestMapping("/findOne")
+    private Users findOne(String username){
+
+        return usersService.findOne(username);
+    }
     /**
      * 删除用户
      */
@@ -80,6 +85,17 @@ public class TbUsersController {
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false,"添加失败");
+        }
+    }
+
+    @RequestMapping("/updateUser")
+    private Result updateUser(@RequestBody Users users){
+        try {
+            usersService.updateUser(users);
+            return new Result(true,"修改成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"修改失败");
         }
     }
 }

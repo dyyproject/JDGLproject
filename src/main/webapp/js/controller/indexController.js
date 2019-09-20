@@ -1,32 +1,41 @@
-app.controller('indexController',function ($scope, $location,indexService) {
-    $scope.users={};
-    $scope.selectUsername=function () {
+app.controller('indexController', function ($scope, $location, indexService) {
+    $scope.users = {};
+    $scope.selectUsername = function () {
         indexService.selectUsername().success(
             function (response) {
-                $scope.users.username=response.username;
+                $scope.users.username = response.username;
             }
         )
     }
-    $scope.findOne=function(){
-        indexService.findOne().success(
+    $scope.findName = function () {
+        indexService.findName().success(
             function (response) {
-                $scope.users=response;
+                $scope.users = response;
+            }
+        )
+    };
+
+
+    $scope.findOne = function (username) {
+        indexService.findOne(username).success(
+            function (response) {
+                $scope.users = response;
+            }
+        )
+    };
+
+    $scope.logout = function () {
+        indexService.logout().success(
+            function (response) {
+                location.href = "../login.html";
             }
         )
     }
 
-    $scope.logout=function () {
-       indexService.logout().success(
-           function (response) {
-               location.href="http://baidu.com";
-           }
-       )
-    }
-
-    $scope.search=function () {
+    $scope.search = function () {
         roomService.search($scope.searchString).success(
             function (response) {
-                if (response.success){
+                if (response.success) {
                     $scope.findAll();
                 } else {
                     alert(response.message);
@@ -38,17 +47,48 @@ app.controller('indexController',function ($scope, $location,indexService) {
     /**
      * 关闭返回index
      */
-    $scope.close=function(){
-        location.href="/admin/index.html";
+    $scope.close = function () {
+        location.href = "/admin/index.html";
     }
 
     /**
      * 新建users
      */
-    $scope.addUsers=function () {
-        indexService.addUsers($scope.ent).success(
+    $scope.addUsers = function () {
+        if ($scope.users.id != null) {
+            indexService.updateUser($scope.users).success(
+                function (response) {
+                    if (response.success) {
+                        $scope.findAll();
+                    } else {
+                        alert(response.message);
+                    }
+                })
+        } else {
+            indexService.addUsers($scope.users).success(
+                function (response) {
+                    if (response.success) {
+                        $scope.findAll();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            )
+        }
+    }
+
+    $scope.findAll = function () {
+        indexService.findAll().success(
             function (response) {
-                if (response.success){
+                $scope.entity = response;
+            }
+        )
+    };
+
+    $scope.delete = function (username) {
+        indexService.delete(username).success(
+            function (response) {
+                if (response.success) {
                     $scope.findAll();
                 } else {
                     alert(response.message);
@@ -57,12 +97,18 @@ app.controller('indexController',function ($scope, $location,indexService) {
         )
     }
 
-    $scope.findAll=function () {
-        indexService.findAll().success(
+    /**
+     * 修改users权限
+     */
+    $scope.updateUser = function (users) {
+        indexService.updateUser(users).success(
             function (response) {
-                $scope.entity=response;
+                if (response.success) {
+                    $scope.findAll();
+                } else {
+                    alert(response.message)
+                }
             }
         )
     }
-
 });

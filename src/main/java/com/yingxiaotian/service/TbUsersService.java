@@ -27,4 +27,6 @@ public interface TbUsersService {
     void deleteUsers(String username);
 
     void addUsers(Users users);
+
+    void updateUser(Users users);
 }
